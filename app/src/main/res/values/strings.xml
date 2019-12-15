@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">DUHT</string>
+    <string name="did_you_hear_that">DId you hear that?</string>
+    <string name="level_1">Level 1</string>
+    <string name="level_2">Level 2</string>
+    <string name="level_3">Level 3</string>
+    <string name="level_4">Level 4</string>
+
+    <string name="Play">play</string>
+    <string name="button">Button</string>
+    <string name="option_1">Option 1</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_3">Option 3</string>
+    <string name="option_4">Option 4</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="title_activity_question">QuestionActivity</string>
+
+
+</resources>
