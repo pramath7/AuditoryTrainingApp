@@ -53,15 +53,15 @@ public class QuizDBHelper extends SQLiteOpenHelper {
                 "one");
         addQuestion(q1);
         Question q2=new Question("namaste","Namibia","Numb","New","Namaste","Namaste","No",
-                "one");
+                "two");
         addQuestion(q2);
         Question q3=new Question("hello","Hi","Ola","Hello","Bonjour","Hello","No",
-                "one");
+                "three");
         addQuestion(q3);
-//        Question q4=new Question("howareyou","How is that?","How are you?","Howdy?","HoverCraft","How are you?","No",
-//                "two");
-//        addQuestion(q4);
-//        Question q5=new Question("niceshirt","NIce shirt","I am hurt","There is some dirt","Heart","Nice shirt","No",
+//       Question q4=new Question("howareyou","How is that?","How are you?","Howdy?","HoverCraft","How are you?","No",
+//               "two");
+//       addQuestion(q4);
+//       Question q5=new Question("niceshirt","NIce shirt","I am hurt","There is some dirt","Heart","Nice shirt","No",
 //                "two");
 //        addQuestion(q5);
     }
@@ -82,7 +82,8 @@ public class QuizDBHelper extends SQLiteOpenHelper {
     public List<Question> getlevelQuestions(String level){
         List<Question> questionList=new ArrayList<>();
         db=getReadableDatabase();
-        Cursor c=db.rawQuery("SELECT * FROM "+QuestionsTable.TABLE_NAME ,null);
+        Cursor c=db.rawQuery("SELECT * FROM "+QuestionsTable.TABLE_NAME + " WHERE level="+"'"+level+"'",null);
+
         if(c.moveToFirst()){
             do{
                 Question q=new Question();

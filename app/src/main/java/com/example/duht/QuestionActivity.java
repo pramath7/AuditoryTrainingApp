@@ -14,10 +14,16 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Collections;
 import java.util.List;
 
 public class QuestionActivity extends AppCompatActivity {
+    private String level;
+    private String USER_ID="USER";
     private Button normalsound;
     private Button slowsound;
     private RadioButton option1;
@@ -35,11 +41,17 @@ public class QuestionActivity extends AppCompatActivity {
     private MediaPlayer mp1;
     private MediaPlayer mp2;
     private TextView result;
-
+    private FirebaseAnalytics mFirebaseAnalytics;
+    FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+        Bundle b=getIntent().getExtras();
+        level=b.getString("level");
+
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         normalsound=(Button)findViewById(R.id.playbutton);
         result=(TextView)findViewById(R.id.result);
@@ -70,7 +82,9 @@ public class QuestionActivity extends AppCompatActivity {
 
 
         QuizDBHelper dbHelper=new QuizDBHelper(this);
-        questionList=dbHelper.getlevelQuestions("one");
+
+
+        questionList=dbHelper.getlevelQuestions(level);
 
         totalquestions=questionList.size();
         Collections.shuffle(questionList);
@@ -88,6 +102,14 @@ public class QuestionActivity extends AppCompatActivity {
         answered=true;
         RadioButton rb=findViewById(rg.getCheckedRadioButtonId());
         if((rb.getText().toString()).equals(currentQuestion.getAnswer())){
+           // FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+            Bundle bundle=new Bundle();
+           // bundle.putString("USER ID",user.getUid());
+           //// bundle.putString("Correct Answer","Correct");
+            mFirebaseAnalytics.logEvent("Correct",bundle);
+
+
+
             result.setText("Congratulaions! Correct");
             confirm.setText("Next");
             questionList.remove(currentQuestion);
@@ -95,6 +117,9 @@ public class QuestionActivity extends AppCompatActivity {
 
         }
         else{
+
+            Bundle bundle=new Bundle();
+            mFirebaseAnalytics.logEvent("Incorrect",bundle);
             result.setText("Sorry! Incorrect");
             confirm.setText("Next");
 
