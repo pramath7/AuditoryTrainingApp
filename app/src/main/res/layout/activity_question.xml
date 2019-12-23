@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="136dp"
         android:layout_marginBottom="40dp"
-        android:text="@string/confirm"
+        android:text="confirm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.86"
@@ -57,25 +57,25 @@
             android:id="@+id/option1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/option_1" />
+            android:text="one" />
 
         <RadioButton
             android:id="@+id/option2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/option_2" />
+            android:text="two" />
 
         <RadioButton
             android:id="@+id/option3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/option_3" />
+            android:text="three" />
 
         <RadioButton
             android:id="@+id/option4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/option_4" />
+            android:text="four" />
 
     </RadioGroup>
 
@@ -106,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@android:dimen/notification_large_icon_height"
-        app:layout_constraintBottom_toBottomOf="@+id/confirm"
+        app:layout_constraintBottom_toBottomOf="@id/confirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
