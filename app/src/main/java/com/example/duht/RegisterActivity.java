@@ -42,22 +42,18 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        olduser=(TextView)findViewById(R.id.textViewBackToLogin);
+        olduser = (TextView)findViewById(R.id.textViewBackToLogin);
         firebaseDatabase=FirebaseDatabase.getInstance();
-        databaseReference=firebaseDatabase.getReference("Patient");
+        databaseReference = firebaseDatabase.getReference("Patient");
         olduser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(RegisterActivity.this,LoginActivity.class);
+                Intent i = new Intent(RegisterActivity.this,LoginActivity.class);
 
                 startActivity(i);
                 finish();
             }
         });
-
-
-
-
 
         editTextFullName=(EditText)findViewById(R.id.editTextName);
         editTextEmail=(EditText)findViewById(R.id.editTextEmail);
@@ -135,23 +131,12 @@ public class RegisterActivity extends AppCompatActivity {
                                                 Toast.LENGTH_SHORT).show();
 
                                     }
-
-                                    // ...
                                 }
                             });
                 }
-
-
-
-
             }
 
 
         });
-
-
-
-
-
     }
 }
