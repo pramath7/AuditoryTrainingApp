@@ -21,5 +21,8 @@
     <string name="login_failed">"Login failed"</string>
     <string name="time">45</string>
     <string name="Question_number">Question : 1/x</string>
+    <string name="next_question">Next Question</string>
+    <string name="question_1_x">Question : 1/x</string>
+    <string name="_00_45">00:45</string>
 
 </resources>
