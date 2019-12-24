@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,7 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     private RadioButton radioButtonMale;
     private RadioButton radioButtonFemale;
     private String gender="";
-    private FirebaseAnalytics mFirebaseAnalytics;
 
     private Button btnRegister;
     DatabaseReference databaseReference;
@@ -47,9 +45,6 @@ public class RegisterActivity extends AppCompatActivity {
         olduser=(TextView)findViewById(R.id.textViewBackToLogin);
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference("Patient");
-
-        // Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         olduser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,9 +122,6 @@ public class RegisterActivity extends AppCompatActivity {
                                                 Log.d(TAG, "Registration done");
                                                 Intent i=new Intent(RegisterActivity.this,LoginActivity.class);
                                                 startActivity(i);
-                                                Bundle bundle = new Bundle();
-                                               // bundle.putString(FirebaseAnalytics.Param.METHOD, method);
-                                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SIGN_UP, bundle);
                                                 finish();
                                             }
                                         });

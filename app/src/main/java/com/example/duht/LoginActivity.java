@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         newuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent i = new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                                         // Sign in success, update UI with the signed-in user's information
                                         Log.d("Successful", "signInWithEmail:success");
 
-                                        Intent i=new Intent(LoginActivity.this,MainActivity.class);
+                                        Intent i = new Intent(LoginActivity.this,MainActivity.class);
                                         startActivity(i);
                                         //FirebaseUser user = mAuth.getCurrentUser();
                                        // updateUI(user);
