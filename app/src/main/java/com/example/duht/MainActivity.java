@@ -3,12 +3,21 @@ package com.example.duht;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 
 public class MainActivity extends AppCompatActivity {
     private String level;
+    BlurView blurView;
+    TextView app;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
         Button startlevel2=(Button)findViewById(R.id.level2button);
         Button startlevel3=(Button)findViewById(R.id.level3button);
         Button startlevel4=(Button)findViewById(R.id.level4button);
+        blurView = (BlurView)findViewById(R.id.blurView);
+        app = (TextView)findViewById(R.id.app_name);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/MachineGunk-nyqg.ttf");
+        app.setTypeface(typeface);
+        Blurbackground();
         startlevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +57,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void Blurbackground() {
+        float radius = 5f;
+
+        View decorView = getWindow().getDecorView();
+        ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+
+        blurView.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(this))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
     }
 
     private void startone(){

@@ -13,7 +13,7 @@
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">New user? Sign Up here</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
@@ -24,5 +24,8 @@
     <string name="next_question">Next Question</string>
     <string name="question_1_x">Question : 1/x</string>
     <string name="_00_45">00:45</string>
+    <string name="discription">TRAIN TO HEAR BETTER!</string>
+    <string name="duht">DUHT</string>
+    <string name="sign_up">Sign Up to start your training</string>
 
 </resources>

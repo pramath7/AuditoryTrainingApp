@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,11 +22,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
+
 public class LoginActivity extends AppCompatActivity {
     private TextView newuser;
     private EditText textEmail;
     private EditText textPassword;
     private Button login;
+    private BlurView blurView;
+    private TextView appName;
+    private TextView appDiscription;
     private FirebaseAuth mAuth;
 //    public void onStart() {
 //        super.onStart();
@@ -37,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         newuser=(TextView)findViewById(R.id.textViewNewRegister);
+        blurView = (BlurView)findViewById(R.id.blurView);
+        appDiscription = (TextView)findViewById(R.id.AppDiscription);
+        appName = (TextView)findViewById(R.id.Appname);
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/MachineGunk-nyqg.ttf");
+        appName.setTypeface(typeface);
+        appDiscription.setTypeface(typeface);
+        newuser.setTypeface(typeface);
+        Blurbackground();
         newuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,6 +109,20 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void Blurbackground() {
+        float radius = 5f;
+
+        View decorView = getWindow().getDecorView();
+        ViewGroup rootView = (ViewGroup) decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+
+        blurView.setupWith(rootView)
+                .setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(this))
+                .setBlurRadius(radius)
+                .setHasFixedTransformationMatrix(true);
     }
 
 

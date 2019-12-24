@@ -1,69 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/didyouhearthat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
-    tools:context=".MainActivity">
+    android:background="@drawable/abstract_art">
 
-    <TextView
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/did_you_hear_that"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
-        android:textSize="36sp"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.128" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/level1button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="428dp"
-        android:text="@string/level_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/level2button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="348dp"
-        android:text="@string/level_2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/level3button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="264dp"
-        android:text="@string/level_3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent" />
+            <LinearLayout
+                android:id="@+id/Layout_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="2">
 
-    <Button
-        android:id="@+id/level4button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="184dp"
-        android:text="@string/level_4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent" />
+                <TextView
+                    android:id="@+id/app_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="30sp"
+                    android:layout_weight="1.4"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/white"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_margin="50dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/did_you_hear_that" />
+            </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:id="@+id/Layout_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/level1button"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/button"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1.4"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/level_1" />
+
+                <ProgressBar
+                    android:id="@+id/level1Progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0.6"
+                    android:paddingStart="10dp"
+                    android:max="100"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:progress="50"
+                    android:background="@drawable/edit_text_middle"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/level2button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1.4"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@drawable/button"
+                    android:paddingStart="10dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/level_2" />
+
+                <ProgressBar
+                    android:id="@+id/level2Progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0.6"
+                    android:paddingStart="10dp"
+                    android:max="100"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:progress="50"
+                    android:background="@drawable/edit_text_middle"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/level3button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1.4"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@drawable/button"
+                    android:paddingStart="10dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/level_3" />
+
+                <ProgressBar
+                    android:id="@+id/level3Progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0.6"
+                    android:paddingStart="10dp"
+                    android:max="100"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:progress="50"
+                    android:background="@drawable/edit_text_middle"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/level4button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1.4"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:background="@drawable/button"
+                    android:paddingStart="10dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:text="@string/level_4" />
+
+                <ProgressBar
+                    android:id="@+id/level4Progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="0.6"
+                    android:paddingStart="10dp"
+                    android:max="100"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:progress="50"
+                    android:background="@drawable/edit_text_bottom"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </eightbitlab.com.blurview.BlurView>
+
+</RelativeLayout>
