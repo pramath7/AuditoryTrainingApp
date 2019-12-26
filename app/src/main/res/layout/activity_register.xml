@@ -6,6 +6,7 @@ android:background="@drawable/aid">
 <eightbitlab.com.blurview.BlurView
     android:id="@+id/blurView"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -32,6 +33,10 @@ android:background="@drawable/aid">
                 android:textSize="25sp"/>
 
         </LinearLayout>
+
+
+
+
 
 
         <LinearLayout
